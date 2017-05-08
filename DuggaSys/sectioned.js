@@ -734,7 +734,7 @@ function returnedSection(data)
     // Course Name
     // This will ellipsis on the course name, and keep course code and vers always fully expanded
     str+="<div class='course ellipseBox' style='display: flex;align-items: center;justify-content: center;'>";
-        	str+="<div class='showhide' id='course-showhide' value='Show/Hide all' style='position:absolute;  cursor: pointer; left:10px; margin-top: 10px; display: flex;' ><img src='../Shared/icons/desc_complement.svg' class='arrowCompTop'><img src='../Shared/icons/right_complement.svg' class='arrowRightTop' style='display:none;'>";
+        	str+="<div class='showhide' id='course-showhide' value='Show/Hide all' style='position:absolute;  cursor: pointer; left:10px; margin-top: 10px; display: flex;' ><img src='../Shared/icons/desc_complement.svg' class='arrowCompTop style='display:inline-block;'><img src='../Shared/icons/right_complement.svg' class='arrowRightTop' style='display:none;'>";
         	str+="</div>";
         	str+="<div class='showhide' id='course-showhide-text' style='position:absolute;  cursor: pointer; left:25px; margin-top: 10px; display: flex;' >";
         	str+="<text class='showhidetext' >Show/hide all</text>";
@@ -1195,18 +1195,43 @@ $(document).on('click', '.section', function () {
 
 // Function for toggling content for all moments
 $(document).on('click', '.showhide', function () {
-    $('.moment').nextUntil('.moment').slideToggle();
-    $('.moment').children('.arrowRight').slideToggle();
-    $('.moment').children('.arrowComp').slideToggle();
+	if($('.moment').nextUntil('.moment').slideDown()){
+        $('.moment').nextUntil('.moment').slideUp();
+        $('.moment').children('.arrowRight').slideUp();
+        $('.moment').children('.arrowComp').slideUp();
+	}
+
+
+	/*
+	 $('.moment').nextUntil('.moment').slideToggle();
+	 $('.moment').children('.arrowRight').slideToggle();
+	 $('.moment').children('.arrowComp').slideToggle();
+	*/
+
+	/*else if($('.moment').nextUntil('.moment').slideUp()){
+        $('.moment').nextUntil('.moment').slideDown();
+        $('.moment').children('.arrowRight').slideDown();
+        $('.moment').children('.arrowComp').slideDown();
+	}*/
+
 });
 
 // Function for toggling content for all sections
 $(document).on('click', '.showhide', function () {
-    $('.showhide').children('.arrowRightTop').slideToggle();
-    $('.showhide').children('.arrowCompTop').slideToggle();
-    $('.section').nextUntil('.section').slideToggle();
-    $('.section').children('.arrowRight').slideToggle();
-    $('.section').children('.arrowComp').slideToggle();
+	if($('.section').nextUntil('.section').slideDown()){
+    	$('.showhide').children('.arrowRightTop').slideUp();
+    	$('.showhide').children('.arrowCompTop').slideUp();
+    	$('.section').nextUntil('.section').slideUp();
+    	$('.section').children('.arrowRight').slideUp();
+    	$('.section').children('.arrowComp').slideUp();
+	}
+
+	/*if($temp%$temp == 0){
+        $('.section').nextUntil('.section').slideToggle();
+        $('.section').children('.arrowRight').slideToggle();
+        $('.section').children('.arrowComp').slideToggle();
+	}
+    */
 });
 
 // Function to prevent collapsing when clicking icons
