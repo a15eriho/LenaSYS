@@ -209,7 +209,7 @@ function handleUnorderedList(currentLine, prevLine, nextLine) {
     if(currentLineIndentation < nextLineIndentation) { 
     	markdown += "<li>";
     	markdown +=  value;
-    	markdown += "<ul>" 
+    	markdown += "<ul>";
     }
     // Close sublists
     else if(currentLineIndentation > nextLineIndentation) { 
@@ -250,7 +250,7 @@ function handleOrderedList(currentLine, prevLine, nextLine) {
     	markdown +=  value;
 
     	// open sublist
-    	markdown += "<ol>" 
+    	markdown += "<ol>";
     }
     // Close sublists
     else if(currentLineIndentation > nextLineIndentation) { 
@@ -312,7 +312,7 @@ function handleTable(currentLine, prevLine, nextLine) {
         }
         // handle table row
         else {
-            markdown += "<tr style=''>"
+            markdown += "<tr style=''>";
             for(var i = 0; i < columns.length; i++) {
                 var alignment = "";
 
